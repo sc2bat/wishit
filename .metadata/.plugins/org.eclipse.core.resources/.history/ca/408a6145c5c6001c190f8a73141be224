@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.customDao">
+	<select id="getCustom" parameterType="String" resultType="com.example.demo.dto.customVO">
+		SELECT * FROM custom WHERE busi_num = ${param1}
+	</select>
+	
+	<insert id="insertCustom" parameterType="com.example.demo.dto.customVO">
+		INSERT INTO custom(busi_num, custom, short_custom, ceo, charge_person, item, post_num, addr1, addr2, 
+			tel, fax, homepage, co_yn, foreign_yn, tax_yn, country_eng, country_kor, special_relation, trade_stop, 
+				contract_period_s, contract_period_e, regi_info_man, regi_info_date)
+			VALUES(#{busi_num}, #{custom}, #{short_custom}, #{ceo}, #{charge_person}, #{item}, #{post_num}, #{addr1}, #{addr2}, 
+				#{tel}, #{fax}, #{homepage}, #{co_yn}, #{foreign_yn}, #{tax_yn}, #{country_eng}, #{country_kor}, #{special_relation}, #{trade_stop}, 
+					#{contract_period_s}, #{contract_period_e}, #{regi_info_man}, #{regi_info_date})
+	</insert>
+</mapper>

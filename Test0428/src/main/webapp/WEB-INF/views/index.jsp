@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h2>Test</h2>
+	<h4><a href="toCustomControl">거래처 관리</a></h4>
 </body>
 </html>

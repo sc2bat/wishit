@@ -1,7 +1,8 @@
+DROP TABLE custom;
 CREATE TABLE custom(
 	busi_num CHAR(20) PRIMARY KEY NOT NULL,
 	custom CHAR(20) NOT NULL,
-	short CHAR(20),
+	short_custom CHAR(20),
 	ceo CHAR(10),
 	charge_person CHAR(10),
 	busi_condition CHAR(10),

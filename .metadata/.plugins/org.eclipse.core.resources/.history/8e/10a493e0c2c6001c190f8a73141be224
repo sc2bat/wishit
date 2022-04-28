@@ -1,0 +1,14 @@
+package com.example.demo.dao;
+
+import java.util.ArrayList;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.demo.dto.cdto;
+
+@Mapper
+public interface customDao {
+
+	ArrayList<cdto> getCustom(String busi_num);
+
+}
