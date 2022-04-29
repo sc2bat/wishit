@@ -171,6 +171,15 @@ body{
 
 }
 
+.post_search_btn{
+    position: relative;
+    float: left;
+    width: 42px;
+    height: 26px;
+    margin: 4px;
+    background: none;
+}
+
 .radio_btn{
     position: relative;
     float: left;

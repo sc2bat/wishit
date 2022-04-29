@@ -1,0 +1,50 @@
+SELECT * FROM custom;
+
+INSERT INTO customTable(busi_num, custom)
+	VALUES('1111', 'emart');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('2222', 'ministop');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('3333', 'gs');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('4444', 'seven');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('5555', 'cu');
+
+
+SELECT * FROM customTable;
+
+SELECT * FROM customTable 
+	WHERE busi_num LIKE '%111%' AND custom LIKE '%%'
+		ORDER BY busi_num DESC;
+		
+SELECT * FROM country;
+
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Republic of South Africa', '남아프리카공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'qwerqwera', 'qwerqwerweq');

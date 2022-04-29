@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="country_search_box">
+		<div class="country_inner_box">
+			<input type="text" placeholder="eng">
+			<input type="text" placeholder="kor">
+			<input type="button" onClick="go_country_search();">
+		</div>
+		<c:forEach items="${countryList}" var="cvo">
+			<div class="country_inner_box">
+				<a href="#">${cvo.country_eng } ${cvo.country_kor }</a>
+			</div>
+		</c:forEach>
+	</div>
+</body>
+</html>

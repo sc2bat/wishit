@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.dto.countryVO;
 import com.example.demo.dto.customVO;
 
 @Mapper
@@ -18,5 +19,7 @@ public interface customDao {
 	ArrayList<customVO> getCustomSearchResult(String busi_num_key, String custom_key);
 
 	void deleteCustom(String busi_num);
+
+	ArrayList<countryVO> getCountry(String country_eng, String country_kor);
 
 }

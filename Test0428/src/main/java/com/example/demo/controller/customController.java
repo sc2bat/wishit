@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dao.customDao;
+import com.example.demo.dto.countryVO;
 import com.example.demo.dto.customVO;
 
 @Controller
@@ -28,47 +29,55 @@ public class customController {
 	@RequestMapping("/toCustomControl")
 	public String toCustomControl(HttpServletRequest request, Model model) {
 		String url = "custom/customControl";
+		return url;
+	}
+	
+	@RequestMapping(value="/saveCustom", method=RequestMethod.POST)
+	public String saveCustom(HttpServletRequest request, Model model, @ModelAttribute("dto") customVO customVO) {
+		ArrayList<customVO> list = cdao.getCustom(customVO.getBusi_num());
+		String co_yn = request.getParameter("co_yn_input");
+		String foreign_yn = request.getParameter("foreign_yn_input");
+		String tax_yn = request.getParameter("tax_yn");
+		
+		customVO.setCo_yn(co_yn);
+		customVO.setForeign_yn(foreign_yn);
+		customVO.setTax_yn(tax_yn);
+
+		if(list.size() == 0) {
+			cdao.insertCustom(customVO);
+		}else {
+			cdao.updateCustom(customVO);
+		}
+		String url = "redirect:/resultCustom?busi_num=" + customVO.getBusi_num();
+		return url;
+	}
+	
+	
+	@RequestMapping("/resultCustom")
+	public String resultCustom(HttpServletRequest request, Model model) {
+		String url = "custom/customControl";
 		String busi_num = request.getParameter("busi_num");
 		ArrayList<customVO> list = cdao.getCustom(busi_num);
 		model.addAttribute("dto", list.get(0));
 		return url;
 	}
 	
-	@RequestMapping("/checkCustomExist")
-	public String checkCustomExist(HttpServletRequest request, Model model, @ModelAttribute("dto") customVO customVO) {
-		String url = "custom/customControl";
-		String busi_num = request.getParameter("busi_num");
-		ArrayList<customVO> list = cdao.getCustom(busi_num);
-		model.addAttribute("customVO", customVO);
-		if(list.size() == 0) {
-			url = "customUpdate";
-		}else {
-			url = "customInsert";
-		}
-		return url;
-	}
-	
-	@RequestMapping(value="/customInsert", method=RequestMethod.POST)
-	public String customInsert(HttpServletRequest request, Model model, @ModelAttribute customVO customVO) {
-		String url = "custom/customControl?busi_num=" + customVO.getBusi_num();
-		cdao.insertCustom(customVO);
-		return url;
-	}
-	
-	@RequestMapping(value="/customUpdate", method=RequestMethod.POST)
-	public String customUpdate(HttpServletRequest request, Model model, @ModelAttribute customVO customVO) {
-		String url = "custom/customControl?busi_num=" + customVO.getBusi_num();
-		cdao.updateCustom(customVO);
-		return url;
-	}
-	
 	@RequestMapping("/customSearch")
 	public String customSearch(HttpServletRequest request, Model model) {
 		String url = "custom/customControl";
-		String busi_num_key = request.getParameter("busi_num_key");
-		String custom_key = request.getParameter("custom_key");
-		ArrayList<customVO> list = cdao.getCustomSearchResult(busi_num_key, custom_key);
+		String busi_num = request.getParameter("busi_num");
+		String custom = request.getParameter("custom");
+		ArrayList<customVO> list = cdao.getCustomSearchResult(busi_num, custom);
 		model.addAttribute("customList", list);
+		return url;
+	}
+	
+	@RequestMapping("/clickCustom")
+	public String clickCustom(HttpServletRequest request, Model model) {
+		String url = "custom/customControl";
+		String busi_num = request.getParameter("busi_num");
+		ArrayList<customVO> list = cdao.getCustom(busi_num);
+		model.addAttribute("dto", list.get(0));
 		return url;
 	}
 	
@@ -77,6 +86,18 @@ public class customController {
 		String url = "custom/customControl";
 		String busi_num = request.getParameter("busi_num");
 		cdao.deleteCustom(busi_num);
+		return url;
+	}
+	
+	@RequestMapping("/searchCountry")
+	public String searchCountry(HttpServletRequest request, Model model) {
+		String url = "custom/countryPopup";
+		String country_eng = request.getParameter("country_eng").toUpperCase();
+		String country_kor = request.getParameter("country_kor");
+		if(country_kor != "") {
+			ArrayList<countryVO> list = cdao.getCountry(country_eng, country_kor);
+			model.addAttribute("countryList", list);
+		}
 		return url;
 	}
 

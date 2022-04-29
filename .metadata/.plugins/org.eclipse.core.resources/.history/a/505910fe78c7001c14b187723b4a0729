@@ -1,0 +1,55 @@
+SELECT * FROM custom;
+
+INSERT INTO customTable(busi_num, custom)
+	VALUES('1111', 'emart');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('2222', 'ministop');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('3333', 'gs');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('4444', 'seven');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('5555', 'cu');
+
+
+SELECT * FROM customTable;
+
+SELECT * FROM customTable 
+	WHERE busi_num LIKE '%111%' AND custom LIKE '%%'
+		ORDER BY busi_num DESC;
+		
+SELECT * FROM country;
+
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'GHA', '가나');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'NGA', '나이지리아');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'DNK', '덴마크');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'KOR', '대한민국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'DEU', '독일');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'LBN', '레바논');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'MDG', '마다가스카르');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'MEX', '멕시코');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'MDV', '몰디브');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'SDN', '수단');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'GBR', '영국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'AUT', '오스트리아');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'JPN', '일본');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'CHN', '중화인민공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'THA', '타이');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'PHL', '필리핀');
+	

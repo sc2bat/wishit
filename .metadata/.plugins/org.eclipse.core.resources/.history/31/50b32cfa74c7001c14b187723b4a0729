@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<input type="text" >
+		<input type="button" onClick="">
+	</div>
+	<c:forEach items="${countryList}" var="cvo">
+		<div>
+			<a href="#">${cvo.country_eng } ${cvo.country_kor }</a>
+		</div>
+	</c:forEach>
+</body>
+</html>

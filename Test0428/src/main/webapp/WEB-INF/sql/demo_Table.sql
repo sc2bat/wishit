@@ -1,5 +1,5 @@
 DROP TABLE custom;
-CREATE TABLE custom(
+CREATE TABLE customTable(
 	busi_num CHAR(20) PRIMARY KEY NOT NULL,
 	custom CHAR(20) NOT NULL,
 	short_custom CHAR(20),
@@ -35,7 +35,7 @@ CREATE TABLE account(
 	account_num CHAR(20)
 );
 
--- ¼­¿ï ±¸·Î±¸ µµ¸²·Î20±æ 30
+-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½20ï¿½ï¿½ 30
 CREATE TABLE address(
 	add_num NUMBER(5) PRIMARY KEY NOT NULL,
 	add_post_num VARCHAR2(10),
@@ -46,10 +46,10 @@ CREATE TABLE address(
 );
 
 CREATE SEQUENCE add_num_seq INCREMENT BY 1 START WITH 1 NOCACHE;
-
+DROP TABLE country;
 CREATE TABLE country(
 	country_num NUMBER(5) PRIMARY KEY NOT NULL,
-	country_eng CHAR(20),
-	country_kor CHAR(20)
+	country_eng VARCHAR2(40),
+	country_kor VARCHAR2(40)
 );
 CREATE SEQUENCE country_num_seq INCREMENT BY 1 START WITH 1 NOCACHE;

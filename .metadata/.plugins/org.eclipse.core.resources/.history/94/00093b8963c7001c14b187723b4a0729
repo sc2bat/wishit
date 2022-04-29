@@ -1,0 +1,13 @@
+SELECT * FROM custom;
+
+INSERT INTO custom(busi_num, custom)
+	VALUES('1111', 'emart');
+INSERT INTO custom(busi_num, custom)
+	VALUES('2222', 'ministop');
+INSERT INTO custom(busi_num, custom)
+	VALUES('3333', 'gs');
+INSERT INTO custom(busi_num, custom)
+	VALUES('4444', 'seven');
+INSERT INTO custom(busi_num, custom)
+	VALUES('5555', 'cu');
+

@@ -1,0 +1,19 @@
+SELECT * FROM custom;
+
+INSERT INTO customTable(busi_num, custom)
+	VALUES('1111', 'emart');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('2222', 'ministop');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('3333', 'gs');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('4444', 'seven');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('5555', 'cu');
+
+
+SELECT * FROM customTable;
+
+SELECT * FROM customTable 
+	WHERE busi_num LIKE '%'||'111''||'%' AND custom LIKE '%'||'''||'%' 
+		ORDER BY busi_num DESC;

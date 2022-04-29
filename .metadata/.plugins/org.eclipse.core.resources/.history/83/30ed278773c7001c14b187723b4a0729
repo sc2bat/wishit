@@ -1,0 +1,67 @@
+SELECT * FROM custom;
+
+INSERT INTO customTable(busi_num, custom)
+	VALUES('1111', 'emart');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('2222', 'ministop');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('3333', 'gs');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('4444', 'seven');
+INSERT INTO customTable(busi_num, custom)
+	VALUES('5555', 'cu');
+
+
+SELECT * FROM customTable;
+
+SELECT * FROM customTable 
+	WHERE busi_num LIKE '%111%' AND custom LIKE '%%'
+		ORDER BY busi_num DESC;
+		
+SELECT * FROM country;
+
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Republic of South Africa', '남아프리카공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Republic of Korea', '대한민국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Federal Republic of Germany', '독일연방공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Russian Federation', '러시아 연방');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'United Mexican States', '멕시코 합중국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'United States of America', '미합중국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'República Federativa do Brasil', '브라질 연방 공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Kingdom of Saudi Arabia', '사우디 아라비아 왕국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Argentine Republic', '아르헨티나 공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'United Kingdom', '영국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Italian Republic', '이탈리아 공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Republic of India', '인도 공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Republic of Indonesia', '인도네시아 공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Japan', '일본');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Peoples Republic of China', '중화인민공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Canada', '캐나다');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Republic of Türkiye', '튀르키예 공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'French Republic', '프랑스 공화국');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Commonwealth of Australia', '호주');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'European Union', '유럽연합');
+INSERT INTO country(country_num, country_eng, country_kor)
+	VALUES(country_num_seq.nextVal, 'Kingdom of Spain', '에스파냐 왕국');
+	
+	
+	
