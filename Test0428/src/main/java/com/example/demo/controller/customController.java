@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,21 +35,15 @@ public class customController {
 	
 	@RequestMapping(value="/saveCustom", method=RequestMethod.POST)
 	public String saveCustom(HttpServletRequest request, Model model, @ModelAttribute("dto") customVO customVO) {
-		ArrayList<customVO> list = cdao.getCustom(customVO.getBusi_num());
-		String co_yn = request.getParameter("co_yn_input");
-		String foreign_yn = request.getParameter("foreign_yn_input");
-		String tax_yn = request.getParameter("tax_yn");
-		
-		customVO.setCo_yn(co_yn);
-		customVO.setForeign_yn(foreign_yn);
-		customVO.setTax_yn(tax_yn);
-
+		ArrayList<customVO> list = cdao.getCustom(request.getParameter("busi_num"));
+		customVO.setContract_period_s(request.getParameter("contract_period_s").replace(".", ""));
+		customVO.setContract_period_e(request.getParameter("contract_period_e").replace(".", ""));
 		if(list.size() == 0) {
 			cdao.insertCustom(customVO);
 		}else {
 			cdao.updateCustom(customVO);
 		}
-		String url = "redirect:/resultCustom?busi_num=" + customVO.getBusi_num();
+		String url = "redirect:/resultCustom?busi_num=" + request.getParameter("busi_num");
 		return url;
 	}
 	
@@ -92,12 +87,18 @@ public class customController {
 	@RequestMapping("/searchCountry")
 	public String searchCountry(HttpServletRequest request, Model model) {
 		String url = "custom/countryPopup";
-		String country_eng = request.getParameter("country_eng").toUpperCase();
+		String country_eng = request.getParameter("country_eng");
 		String country_kor = request.getParameter("country_kor");
-		if(country_kor != "") {
+		if(country_eng != "" || country_kor != "") {
 			ArrayList<countryVO> list = cdao.getCountry(country_eng, country_kor);
 			model.addAttribute("countryList", list);
 		}
+		return url;
+	}
+	
+	@RequestMapping("/contract_datePicker")
+	public String contract_datePicker(HttpServletRequest request, Model model) {
+		String url = "custom/contract_datePicker";
 		return url;
 	}
 

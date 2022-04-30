@@ -22,7 +22,7 @@
     <div id="wrap">
     	<form name="form" method="post">
         	<div class="top_box">
-	            <div class="top_left">
+	            <div class="top_left" onClick="location.href='toCustomControl'">
 	                [실기 TEST] 거래처 관리
 	            </div>
 	            <div class="top_right">
@@ -41,9 +41,9 @@
 	            <div class="main_left">
 	                <div class="main_left_top">
 	                    <label>사업자번호</label>
-	                    <input type="text" id="busi_num" name="busi_num_key" class="main_left_input_text">
+	                    <input type="text" id="busi_num_key" name="busi_num_key" class="main_left_input_text">
 	                    <label style="margin-top:0px;">거래처명</label>
-	                    <input type="text" id="custom" name="custom_key" class="main_left_input_text" style="margin-top:0px;">
+	                    <input type="text" id="custom_key" name="custom_key" class="main_left_input_text" style="margin-top:0px;">
 	                    <input type="button" value="조회" class="main_left_input_btn" onClick="searchCustom();">
 	                </div>
 	                <div class="main_left_bottom" style="overflow:hidden;">
@@ -52,8 +52,8 @@
 	                        <div class="search_result_custom">거래처명</div>
 	                    </div>
 	                    <c:forEach items="${customList}" var="cvo">
-		                    <div class="search_result_box">
-		                        <div class="search_result_businum" ondblclick="openCustom(${cvo.busi_num })">${cvo.busi_num }</div>
+		                    <div class="search_result_box" ondblclick="openCustom(${cvo.busi_num })">
+		                        <div class="search_result_businum">${cvo.busi_num }</div>
 		                        <div class="search_result_custom">${cvo.custom }</div>
 		                    </div>
 	                    </c:forEach>
@@ -62,71 +62,73 @@
 	            <div class="main_right">
 	                <div class="custom_input_box">
 	                    <label>사업자번호</label>
-	                    <input type="text" name="busi_num_input" value="${dto.busi_num}">
+	                    <input type="text" id="busi_num" name="busi_num" value="${dto.busi_num}">
 	                    <label>약칭</label>
-	                    <input type="text" name="short_input" value="${dto.short_custom}">
+	                    <input type="text"name="short_custom" value="${dto.short_custom}">
 	                    <label>거래처명</label>
-	                    <input type="text" name="custom_input" style="width: 340px;margin-right: 100px;" value="${dto.custom}">
+	                    <input type="text" id="custom"  name="custom" style="width: 340px;margin-right: 100px;" value="${dto.custom}">
 	                    <label>대표자</label>
-	                    <input type="text" name="ceo_input" value="${dto.ceo}">
+	                    <input type="text" name="ceo" value="${dto.ceo}">
 	                    <label>담당자</label>
-	                    <input type="text" name="charge_person_input" value="${dto.charge_person}">
+	                    <input type="text" name="charge_person" value="${dto.charge_person}">
 	                    <label>업태</label>
-	                    <input type="text" name="busi_condition_input" value="${dto.busi_condition}">
+	                    <input type="text" name="busi_condition" value="${dto.busi_condition}">
 	                    <label>종목</label>
-	                    <input type="text" name="item_input" value="${dto.item}">
+	                    <input type="text" name="item" value="${dto.item}">
 	                    <label>우편번호</label>
-	                    <input type="text" name="post_num_input" id="sample6_postcode" value="${dto.post_num}">
+	                    <input type="text" name="post_num" id="sample6_postcode" value="${dto.post_num}">
 	                    <div style="position: relative;float: left;"><input type="button" value="검색" class="post_search_btn" onclick="sample6_execDaumPostcode()"></div>
 	                    <label style="width: 70px;margin-right: 43px;">주소1</label>
-	                    <input type="text" name="address1_input" id="sample6_address" value="${dto.addr1}">
+	                    <input type="text" name="addr1" id="sample6_address" value="${dto.addr1}">
 	                    <label>주소2</label>
-	                    <input type="text" name="address2_input" id="sample6_detailAddress" style="width: 340px;margin-right: 100px;" value="${dto.addr2}">
+	                    <input type="text" name="addr2" id="sample6_detailAddress" style="width: 340px;margin-right: 100px;" value="${dto.addr2}">
 	                    <label>전화번호</label>
-	                    <input type="text" name="tel_input" value="${dto.tel }">
+	                    <input type="text" name="tel" value="${dto.tel }">
 	                    <label>팩스번호</label>
-	                    <input type="text" name="fax_input" value="${dto.fax }">
+	                    <input type="text" name="fax" value="${dto.fax }">
 	                    <label>홈페이지</label>
-	                    <input type="text" name="homepage_input" style="width: 340px;margin-right: 100px;" value="${dto.homepage }">
+	                    <input type="text" name="homepage" style="width: 340px;margin-right: 100px;" value="${dto.homepage }">
 	                    <label>법인여부</label>
 	                    <div class="radio_btn">
-	                        <input type="radio" name="co_yn_input" value="1">법인
-	                        <input type="radio" name="co_yn_input" value="2">개인
+	                        <input type="radio" name="co_yn" value="1" <c:if test="${dto.co_yn == 1}">checked</c:if>>법인
+	                        <input type="radio" name="co_yn" value="2" <c:if test="${dto.co_yn == 2}">checked</c:if>>개인
 	                    </div>
 	                    <label>해외여부</label>
 	                    <div class="radio_btn">
-	                        <input type="radio" name="foreign_yn_input" value="1">국내
-	                        <input type="radio" name="foreign_yn_input" value="2">해외
+	                        <input type="radio" name="foreign_yn" value="1" <c:if test="${dto.foreign_yn == 1}">checked</c:if>>국내
+	                        <input type="radio" name="foreign_yn" value="2" <c:if test="${dto.foreign_yn == 2}">checked</c:if>>해외
 	                    </div>
 	                    <label>과세구분</label>
-	                    <select name="tax_yn" class="combo_box" value="${dto.tax_yn }">
+	                    <select name="tax_yn" class="combo_box">
 	                        <option value="3">=== 선택 ===</option>
-	                        <option value="1">과세 / 면세</option>
-	                        <option value="2">비과세</option>
+	                        <option value="1" <c:if test="${dto.tax_yn == 1}"> selected </c:if>>과세 / 면세</option>
+	                        <option value="2" <c:if test="${dto.tax_yn == 2}"> selected </c:if>>비과세</option>
 	                    </select>
 	                    <label>국가</label>
-	                    <input type="text" name="country_eng_input" style="width: 40px;" value="${dto.country_eng }" id="country_eng" readonly>
-	                    <input type="text" name="country_kor_input" style="width: 110px;" value="${dto.country_kor }" id="country_kor">
+	                    <input type="text" name="country_eng" style="width: 40px;" value="${dto.country_eng }" id="country_eng" readonly>
+	                    <input type="text" name="country_kor" style="width: 110px;" value="${dto.country_kor }" id="country_kor">
 	                    <input type="button" value="검색" onClick="countryPopup()" style="width: 40px;height: 24px;background: none;">
 	                    <label>특수관계자</label>
 	                    <div>
-	                        <input type="checkbox" name="special_relation_input" class="check_btn" <c:if test="${dto.special_relation == 1}">checked</c:if>>
+	                        <input type="checkbox" name="special_relation" class="check_btn" value="1" 
+	                        	<c:if test="${dto.special_relation == 1}">checked</c:if>>
 	                    </div>
 	                    <label>거래중지</label>
 	                    <div>
-	                        <input type="checkbox" name="trade_stop_input" class="check_btn" <c:if test="${dto.trade_stop == 1}">checked</c:if>>
+	                        <input type="checkbox" name="trade_stop" class="check_btn" value="1" 
+	                        	<c:if test="${dto.trade_stop == 1}">checked</c:if>>
 	                    </div>
 	                    <label>계약기간</label>
-	                    <input type="text" name="contract_period_s_input" value="${dto.contract_period_s }">
+	                    <input type="text" name="contract_period_s" value="${dto.contract_period_s }" onClick="contract_datePicker('${dto.contract_period_s }', '${dto.contract_period_e }')">
 	                    <div style="position:relative; float:left; width:30px; height:30px;line-height: 30px;margin: 0px 30px 0px 30px;text-align: center;">~</div>
-	                    <input type="text" name="contract_period_e_input" value="${dto.contract_period_e }">
+	                    <input type="text" name="contract_period_e" value="${dto.contract_period_e }" onClick="contract_datePicker('${dto.contract_period_s }', '${dto.contract_period_e }')">
 	                    <br>
 	                    <label>등록정보</label>
-	                    <input type="text" name="regi_info_man_input" style="width: 50px;margin-right: 0px;" value="${dto.regi_info_man }">
-	                    <input type="text" name="regi_info_date_input" style="width:140px;" value="${dto.regi_info_date }" readonly>
+	                    <input type="text" name="regi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.regi_info_man }">
+	                    <input type="text" name="regi_info_date" style="width:140px;" value="${dto.regi_info_date }" readonly>
 	                    <label style="width: 130px;">변경정보</label>
-	                    <input type="text" name="modi_info_man_input" style="width: 50px;margin-right: 0px;" value="${dto.modi_info_man }">
-	                    <input type="text" name="modi_info_date_input" style="width:140px;" value="${dto.modi_info_date }" readonly>
+	                    <input type="text" name="modi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.modi_info_man }">
+	                    <input type="text" name="modi_info_date" style="width:140px;" value="${dto.modi_info_date }" readonly>
 	                </div>
 	                <div class="customAccount_box" style="overflow:hidden;">
 	                    <div style="padding: 10px 0px 10px 30px;">(거래처 계좌정보)</div>

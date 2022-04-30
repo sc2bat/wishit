@@ -23,12 +23,12 @@ public class customVO {
 	private String country_kor;
 	private String special_relation;
 	private String trade_stop;
-	private Timestamp contract_period_s;
-	private Timestamp contract_period_e;
+	private String contract_period_s;
+	private String contract_period_e;
 	private String regi_info_man;
-	private Timestamp regi_info_date;
+	private String regi_info_date;
 	private String modi_info_man;
-	private Timestamp modi_info_date;
+	private String modi_info_date;
 	public String getBusi_num() {
 		return busi_num;
 	}
@@ -149,16 +149,16 @@ public class customVO {
 	public void setTrade_stop(String trade_stop) {
 		this.trade_stop = trade_stop;
 	}
-	public Timestamp getContract_period_s() {
+	public String getContract_period_s() {
 		return contract_period_s;
 	}
-	public void setContract_period_s(Timestamp contract_period_s) {
+	public void setContract_period_s(String contract_period_s) {
 		this.contract_period_s = contract_period_s;
 	}
-	public Timestamp getContract_period_e() {
+	public String getContract_period_e() {
 		return contract_period_e;
 	}
-	public void setContract_period_e(Timestamp contract_period_e) {
+	public void setContract_period_e(String contract_period_e) {
 		this.contract_period_e = contract_period_e;
 	}
 	public String getRegi_info_man() {
@@ -167,10 +167,10 @@ public class customVO {
 	public void setRegi_info_man(String regi_info_man) {
 		this.regi_info_man = regi_info_man;
 	}
-	public Timestamp getRegi_info_date() {
+	public String getRegi_info_date() {
 		return regi_info_date;
 	}
-	public void setRegi_info_date(Timestamp regi_info_date) {
+	public void setRegi_info_date(String regi_info_date) {
 		this.regi_info_date = regi_info_date;
 	}
 	public String getModi_info_man() {
@@ -179,10 +179,10 @@ public class customVO {
 	public void setModi_info_man(String modi_info_man) {
 		this.modi_info_man = modi_info_man;
 	}
-	public Timestamp getModi_info_date() {
+	public String getModi_info_date() {
 		return modi_info_date;
 	}
-	public void setModi_info_date(Timestamp modi_info_date) {
+	public void setModi_info_date(String modi_info_date) {
 		this.modi_info_date = modi_info_date;
 	}
 	

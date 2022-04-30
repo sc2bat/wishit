@@ -10,12 +10,12 @@
 	</select>
 	
 	<insert id="insertCustom" parameterType="com.example.demo.dto.customVO">
-		INSERT INTO customTable(busi_num, custom, short_custom, ceo, charge_person, item, post_num, addr1, addr2, 
+		INSERT INTO customTable(busi_num, custom, short_custom, ceo, charge_person, busi_condition, item, post_num, addr1, addr2, 
 			tel, fax, homepage, co_yn, foreign_yn, tax_yn, country_eng, country_kor, special_relation, trade_stop, 
 				contract_period_s, contract_period_e, regi_info_man, regi_info_date)
-			VALUES(#{busi_num}, #{custom}, #{short_custom}, #{ceo}, #{charge_person}, #{item}, #{post_num}, #{addr1}, #{addr2}, 
+			VALUES(#{busi_num}, #{custom}, #{short_custom}, #{ceo}, #{charge_person}, #{busi_condition}, #{item}, #{post_num}, #{addr1}, #{addr2}, 
 				#{tel}, #{fax}, #{homepage}, #{co_yn}, #{foreign_yn}, #{tax_yn}, #{country_eng}, #{country_kor}, #{special_relation}, #{trade_stop}, 
-					#{contract_period_s}, #{contract_period_e}, #{regi_info_man}, SYSDATE)
+					TO_DATE(#{contract_period_s}, 'YYYYMMHH'), TO_DATE(#{contract_period_e}, 'YYYYMMHH'), #{regi_info_man}, SYSDATE)
 	</insert>
 	
 	<update id="updateCustom" parameterType="com.example.demo.dto.customVO">
@@ -37,7 +37,7 @@
 	
 	<select id="getCountry" resultType="com.example.demo.dto.countryVO">
 		SELECT * FROM country 
-			WHERE country_eng LIKE '%'||#{param1}||'%' AND country_kor LIKE '%'||#{param2}||'%' 
+			WHERE UPPER(country_eng) LIKE UPPER('%'||#{param1}||'%') AND country_kor LIKE '%'||#{param2}||'%' 
 				ORDER BY country_num DESC
 	</select>
 </mapper>

@@ -28,6 +28,9 @@ CREATE TABLE customTable(
 	modi_info_date DATE
 );
 
+SELECT * FROM customTable;
+
+SELECT * FROM account;
 CREATE TABLE account(
 	busi_num CHAR(20) PRIMARY KEY NOT NULL,
 	factory CHAR(20),
@@ -35,15 +38,15 @@ CREATE TABLE account(
 	account_num CHAR(20)
 );
 
--- ���� ���α� ������20�� 30
-CREATE TABLE address(
-	add_num NUMBER(5) PRIMARY KEY NOT NULL,
-	add_post_num VARCHAR2(10),
-	add_sido VARCHAR2(10),
-	add_gugun VARCHAR2(10),
-	add_dong VARCHAR2(10),
-	add_indate DATE DEFAULT SYSDATE
-);
+---- ���� ���α� ������20�� 30
+--CREATE TABLE address(
+--	add_num NUMBER(5) PRIMARY KEY NOT NULL,
+--	add_post_num VARCHAR2(10),
+--	add_sido VARCHAR2(10),
+--	add_gugun VARCHAR2(10),
+--	add_dong VARCHAR2(10),
+--	add_indate DATE DEFAULT SYSDATE
+--);
 
 CREATE SEQUENCE add_num_seq INCREMENT BY 1 START WITH 1 NOCACHE;
 DROP TABLE country;

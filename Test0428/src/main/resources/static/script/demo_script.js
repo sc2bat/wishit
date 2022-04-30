@@ -1,12 +1,12 @@
 
 function checkCustom(){
-    if(document.form.busi_num_input.value==""){
-		alert("busi_num_input is null");
-		document.form.busi_num_input.focus();
+    if(document.getElementById('busi_num').value==""){
+		alert("busi_num is null");
+		document.getElementById('busi_num').focus();
 		return;
-	}else if(document.form.custom_input.value==""){
-		alert("custom_input is null");
-		document.form.custom_input.focus();
+	}else if(document.getElementById('custom').value==""){
+		alert("custom is null");
+		document.getElementById('custom').focus();
 		return;
 	}else{
         document.form.action = "saveCustom";
@@ -21,14 +21,19 @@ function searchCustom(){
 		f.busi_num_key.focus();
 		return;
     }else{
-        document.form.action = "customSearch?busi_num=" + f.busi_num_key.value + "&custom=" + f.custom_key.value;
-        document.form.submit();
+        f.action = "customSearch?busi_num=" + f.busi_num_key.value + "&custom=" + f.custom_key.value;
+        f.submit();
     }
 }
 
 function openCustom(busi_num){
     document.form.action = "clickCustom?busi_num=" + busi_num;
     document.form.submit();
+}
+
+function contract_datePicker(contract_period_s, contract_period_e){
+	var opt = "toolbar=no, menubar=no, resizable=0, width=500, height=400, top=300, left=300, scrollbars=no";
+	window.open("contract_datePicker", "contract_datePicker", opt);
 }
 
 function countryPopup(){
@@ -40,11 +45,11 @@ function countryPopup(){
 }
 
 function deleteCustom(){
-    var busi_num_input = document.form.busi_num_input.value;
-    if(busi_num_input.equals("")){
+    var busi_num = document.form.busi_num.value;
+    if(busi_num.equals("")){
         alert('select to delete');
         return;
     }
-    document.form.action = "deleteCustom?busi_num_key=" + busi_num_input;
+    document.form.action = "deleteCustom?busi_num=" + busi_num;
     document.form.submit();
 }
