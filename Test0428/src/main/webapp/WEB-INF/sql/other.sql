@@ -77,3 +77,5 @@ UPDATE customTable SET custom='emart', short_custom='test', ceo='test', charge_p
 			 		modi_info_man='qwer', modi_info_date=SYSDATE
 						WHERE busi_num='1111';
 
+DELETE FROM customTable WHERE TRIM(busi_num)= '211111';
+	(SELECT TRIM(busi_num) FROM customTable) = '211111';

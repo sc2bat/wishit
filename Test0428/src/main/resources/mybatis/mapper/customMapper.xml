@@ -35,7 +35,7 @@
 	</select>
 	
 	<delete id="deleteCustom" parameterType="String">
-		DELETE customTable WHERE busi_num=#{param1}
+		DELETE FROM customTable WHERE TRIM(busi_num)=#{param1}
 	</delete>
 	
 	<select id="getCountry" resultType="com.example.demo.dto.countryVO">

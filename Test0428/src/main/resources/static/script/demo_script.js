@@ -12,7 +12,7 @@ function checkCustom(){
 		alert("regi_info_man is null");
 		document.getElementById('regi_info_man').focus();
 		return;
-	}else if(document.getElementById('regi_info_man').value != "" && document.getElementById('modi_info_man').value==""){
+	}else if(document.getElementById('regi_info_man_check').value != "" && document.getElementById('modi_info_man').value==""){
 		alert("modi_info_man is null");
 		document.getElementById('modi_info_man').focus();
 		return;
@@ -53,19 +53,19 @@ function countryPopup(){
 }
 
 function deleteCustom(){
-    var busi_num = document.form.busi_num.value;
+    var busi_num = document.getElementById('busi_num').value;
     if(busi_num == ""){
         alert('select to delete');
         return;
     }
+    alert(busi_num);
     document.form.action = "deleteCustom?busi_num=" + busi_num;
     document.form.submit();
 }
 
-$(document).ready(
-	function messageAlert(message){
-		if(message != ""){
-			alert(message);
-		}
+$(document).ready(function messageAlert(){
+	var message = document.getElementById('msg').value;
+	if(message != ""){
+		alert(message);
 	}
-);
+});

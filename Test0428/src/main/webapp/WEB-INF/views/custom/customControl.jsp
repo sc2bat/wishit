@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/script/demo_script.js"></script>
 	<script src="/script/addressAPIbykakao.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="/css/demo.css">
     <style type="text/css">
@@ -59,6 +59,7 @@
 	                    </c:forEach>
 	                </div>
 	            </div>
+	            <input type="hidden" id="msg" value="${message }">
 	            <div class="main_right">
 	                <div class="custom_input_box">
 	                    <label>사업자번호</label>
@@ -126,6 +127,7 @@
 	                    <label>등록정보</label>
 	                    <input type="text" id="regi_info_man" name="regi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.regi_info_man }">
 	                    <input type="text" name="regi_info_date" style="width:140px;" value="${dto.regi_info_date }" readonly>
+	                    <input type="hidden" id="regi_info_man_check" value="${dto.regi_info_man}">
 	                    <label style="width: 130px;">변경정보</label>
 	                    <input type="text" id="modi_info_man" name="modi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.modi_info_man }">
 	                    <input type="text" name="modi_info_date" style="width:140px;" value="${dto.modi_info_date }" readonly>

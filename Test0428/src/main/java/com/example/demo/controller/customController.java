@@ -38,6 +38,7 @@ public class customController {
 	@RequestMapping("/toCustomControl")
 	public String toCustomControl(HttpServletRequest request, Model model) {
 		String url = "custom/customControl";
+		model.addAttribute("message", request.getParameter("message"));
 		return url;
 	}
 	
@@ -60,8 +61,7 @@ public class customController {
 			cdao.updateCustom(customVO);
 			message = "custom updated";
 		}
-		model.addAttribute("message", request.getParameter("busi_num")+ message);
-		String url = "redirect:/resultCustom?busi_num=" + request.getParameter("busi_num");
+		String url = "redirect:/resultCustom?busi_num=" + request.getParameter("busi_num") + "&message=" + message;
 		return url;
 	}
 	
@@ -71,6 +71,7 @@ public class customController {
 		String url = "custom/customControl";
 		String busi_num = request.getParameter("busi_num");
 		ArrayList<customVO> list = cdao.getCustom(busi_num);
+		model.addAttribute("message", request.getParameter("message"));
 		model.addAttribute("dto", list.get(0));
 		return url;
 	}
@@ -94,12 +95,14 @@ public class customController {
 		return url;
 	}
 	
-	@RequestMapping("/customDelete")
-	public String customDelete(HttpServletRequest request, Model model) {
-		String url = "custom/customControl";
+	@RequestMapping("/deleteCustom")
+	public String deleteCustom(HttpServletRequest request, Model model) {
 		String busi_num = request.getParameter("busi_num");
+		System.out.println("ss");
+		System.out.println(busi_num);
+		System.out.println("ee");
 		cdao.deleteCustom(busi_num);
-		model.addAttribute("message", busi_num + "custom deleted");
+		String url = "redirect:/toCustomControl?message=" + (busi_num + "custom deleted");
 		return url;
 	}
 	
