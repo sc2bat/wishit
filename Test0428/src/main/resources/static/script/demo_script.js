@@ -8,6 +8,14 @@ function checkCustom(){
 		alert("custom is null");
 		document.getElementById('custom').focus();
 		return;
+	}else if(document.getElementById('regi_info_man').value==""){
+		alert("regi_info_man is null");
+		document.getElementById('regi_info_man').focus();
+		return;
+	}else if(document.getElementById('regi_info_man').value != "" && document.getElementById('modi_info_man').value==""){
+		alert("modi_info_man is null");
+		document.getElementById('modi_info_man').focus();
+		return;
 	}else{
         document.form.action = "saveCustom";
         document.form.submit();
@@ -46,10 +54,18 @@ function countryPopup(){
 
 function deleteCustom(){
     var busi_num = document.form.busi_num.value;
-    if(busi_num.equals("")){
+    if(busi_num == ""){
         alert('select to delete');
         return;
     }
     document.form.action = "deleteCustom?busi_num=" + busi_num;
     document.form.submit();
 }
+
+$(document).ready(
+	function messageAlert(message){
+		if(message != ""){
+			alert(message);
+		}
+	}
+);

@@ -65,4 +65,15 @@ INSERT INTO customTable(busi_num, custom, short_custom, ceo, charge_person, item
 			VALUES('1234', 'test', 'test', 'ceo', 'charge', 'item', '1234', 'addr1', 'addr2', 
 				'tel', 'fax', 'homepage', '1', '1', '2', 'KOR', '대한민국', '1', '2', 
 					TO_DATE('20220302', 'YYYYMMHH'), TO_DATE('20220304', 'YYYYMMHH'), 'regi', SYSDATE);
+					
+INSERT INTO customTable(busi_num, custom, trade_stop)
+	VALUES('24344', 'test44', null);
+					
+UPDATE customTable SET custom='emart', short_custom='test', ceo='test', charge_person='test', busi_condition='test', 
+	item='qwer', post_num='2333', addr1='test', addr2='test', tel='234234', fax='234234', homepage='www.test.com', 
+		co_yn='1', foreign_yn='1', tax_yn='1', country_eng='AUT', country_kor='qwer', 
+			special_relation='1', trade_stop='1', regi_info_man='qwer',
+				contract_period_s=TO_DATE('20220405', 'YYYYMMDD'), contract_period_e=TO_DATE('20220406', 'YYYYMMDD'),
+			 		modi_info_man='qwer', modi_info_date=SYSDATE
+						WHERE busi_num='1111';
 

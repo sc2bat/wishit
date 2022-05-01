@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,12 @@ import com.example.demo.dto.customVO;
 public class customController {
 	@Autowired
 	customDao cdao;
+	
+	private final Logger LOGGER = LoggerFactory.getLogger(customController.class.getName());
+	
+	public void loggerTest() {
+		LOGGER.info("logger test");
+	}
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String main(HttpServletRequest request, Model model) {
@@ -38,11 +46,21 @@ public class customController {
 		ArrayList<customVO> list = cdao.getCustom(request.getParameter("busi_num"));
 		customVO.setContract_period_s(request.getParameter("contract_period_s").replace(".", ""));
 		customVO.setContract_period_e(request.getParameter("contract_period_e").replace(".", ""));
+		if(customVO.getSpecial_relation() == "" || customVO.getSpecial_relation() == null) {
+			customVO.setSpecial_relation("2");
+		}
+		if(customVO.getTrade_stop() == "" || customVO.getTrade_stop() == null) {
+			customVO.setTrade_stop("2");
+		}
+		String message = "";
 		if(list.size() == 0) {
 			cdao.insertCustom(customVO);
+			message = "custom saved";
 		}else {
 			cdao.updateCustom(customVO);
+			message = "custom updated";
 		}
+		model.addAttribute("message", request.getParameter("busi_num")+ message);
 		String url = "redirect:/resultCustom?busi_num=" + request.getParameter("busi_num");
 		return url;
 	}
@@ -81,6 +99,7 @@ public class customController {
 		String url = "custom/customControl";
 		String busi_num = request.getParameter("busi_num");
 		cdao.deleteCustom(busi_num);
+		model.addAttribute("message", busi_num + "custom deleted");
 		return url;
 	}
 	

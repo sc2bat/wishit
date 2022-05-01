@@ -15,14 +15,17 @@
 				contract_period_s, contract_period_e, regi_info_man, regi_info_date)
 			VALUES(#{busi_num}, #{custom}, #{short_custom}, #{ceo}, #{charge_person}, #{busi_condition}, #{item}, #{post_num}, #{addr1}, #{addr2}, 
 				#{tel}, #{fax}, #{homepage}, #{co_yn}, #{foreign_yn}, #{tax_yn}, #{country_eng}, #{country_kor}, #{special_relation}, #{trade_stop}, 
-					TO_DATE(#{contract_period_s}, 'YYYYMMHH'), TO_DATE(#{contract_period_e}, 'YYYYMMHH'), #{regi_info_man}, SYSDATE)
+					TO_DATE(#{contract_period_s}, 'YYYYMMDD'), TO_DATE(#{contract_period_e}, 'YYYYMMDD'), #{regi_info_man}, SYSDATE)
 	</insert>
 	
 	<update id="updateCustom" parameterType="com.example.demo.dto.customVO">
-		UPDATE customTable SET custom=#{custom}, short_custom=#{short_custom}, ceo=#{ceo}, charge_person=#{charge_person}, item=#{item}, post_num=#{post_num}, addr1=#{addr1}, addr2=#{addr2}, 
-			tel=#{tel}, fax=#{fax}, homepage=#{homepage}, co_yn=#{co_yn}, foreign_yn=#{foreign_yn}, tax_yn=#{tax_yn}, country_eng=#{country_eng}, country_kor=#{country_kor}, 
-				special_relation=#{special_relation}, trade_stop=#{trade_stop}, contract_period_s=#{contract_period_s}, contract_period_e=#{contract_period_e}, modi_info_man=#{modi_info_man}, modi_info_date=SYSDATE
-					WHERE busi_num=#{busi_num}
+		UPDATE customTable SET custom=#{custom}, short_custom=#{short_custom}, ceo=#{ceo}, charge_person=#{charge_person}, busi_condition=#{busi_condition}, 
+			item=#{item}, post_num=#{post_num}, addr1=#{addr1}, addr2=#{addr2}, tel=#{tel}, fax=#{fax}, homepage=#{homepage}, 
+				co_yn=#{co_yn}, foreign_yn=#{foreign_yn}, tax_yn=#{tax_yn}, country_eng=#{country_eng}, country_kor=#{country_kor}, 
+					special_relation=#{special_relation}, trade_stop=#{trade_stop}, regi_info_man=#{regi_info_man},
+						contract_period_s=TO_DATE(#{contract_period_s}, 'YYYYMMDD'), contract_period_e=TO_DATE(#{contract_period_e}, 'YYYYMMDD'),
+					 		modi_info_man=#{modi_info_man}, modi_info_date=SYSDATE
+								WHERE busi_num=#{busi_num}
 	</update>
 	
 	<select id="getCustomSearchResult" resultType="com.example.demo.dto.customVO">

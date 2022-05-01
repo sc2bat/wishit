@@ -30,7 +30,7 @@
 	                    <li><input type="button" value="조회" onClick="searchCustom();"></li>
 	                    <li><input type="reset" value="초기화"></li>
 	                    <li><input type="button" value="저장" onClick="checkCustom();"></li>
-	                    <li><input type="button" value="삭제" onClick=""></li>
+	                    <li><input type="button" value="삭제" onClick="deleteCustom();"></li>
 	                    <li><input type="button" value="인쇄" onClick=""></li>
 	                    <li><input type="button" value="화면설정" onClick=""></li>
 	                    <li><input type="button" value="닫기" onClick="window.close();"></li>
@@ -90,12 +90,12 @@
 	                    <input type="text" name="homepage" style="width: 340px;margin-right: 100px;" value="${dto.homepage }">
 	                    <label>법인여부</label>
 	                    <div class="radio_btn">
-	                        <input type="radio" name="co_yn" value="1" <c:if test="${dto.co_yn == 1}">checked</c:if>>법인
+	                        <input type="radio" name="co_yn" value="1" checked>법인
 	                        <input type="radio" name="co_yn" value="2" <c:if test="${dto.co_yn == 2}">checked</c:if>>개인
 	                    </div>
 	                    <label>해외여부</label>
 	                    <div class="radio_btn">
-	                        <input type="radio" name="foreign_yn" value="1" <c:if test="${dto.foreign_yn == 1}">checked</c:if>>국내
+	                        <input type="radio" name="foreign_yn" value="1" checked>국내
 	                        <input type="radio" name="foreign_yn" value="2" <c:if test="${dto.foreign_yn == 2}">checked</c:if>>해외
 	                    </div>
 	                    <label>과세구분</label>
@@ -124,10 +124,10 @@
 	                    <input type="text" name="contract_period_e" value="${dto.contract_period_e }" onClick="contract_datePicker('${dto.contract_period_s }', '${dto.contract_period_e }')">
 	                    <br>
 	                    <label>등록정보</label>
-	                    <input type="text" name="regi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.regi_info_man }">
+	                    <input type="text" id="regi_info_man" name="regi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.regi_info_man }">
 	                    <input type="text" name="regi_info_date" style="width:140px;" value="${dto.regi_info_date }" readonly>
 	                    <label style="width: 130px;">변경정보</label>
-	                    <input type="text" name="modi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.modi_info_man }">
+	                    <input type="text" id="modi_info_man" name="modi_info_man" style="width: 50px;margin-right: 0px;" value="${dto.modi_info_man }">
 	                    <input type="text" name="modi_info_date" style="width:140px;" value="${dto.modi_info_date }" readonly>
 	                </div>
 	                <div class="customAccount_box" style="overflow:hidden;">
