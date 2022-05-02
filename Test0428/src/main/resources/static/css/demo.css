@@ -217,9 +217,8 @@ body{
     position: relative;
     float: left;
     width: 758px;
-    height: 100px;
-    /* border: 1px solid black; */
-    margin:0px 20px 10px 20px
+    height: 141px;
+    margin:0px 20px 0px 20px
 }
 
 .customAccount_content_title{

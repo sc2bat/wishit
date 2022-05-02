@@ -22,4 +22,6 @@ public interface customDao {
 
 	ArrayList<countryVO> getCountry(String country_eng, String country_kor);
 
+	customVO getCustomInfo(String busi_num);
+
 }

@@ -58,7 +58,6 @@ function deleteCustom(){
         alert('select to delete');
         return;
     }
-    alert(busi_num);
     document.form.action = "deleteCustom?busi_num=" + busi_num;
     document.form.submit();
 }

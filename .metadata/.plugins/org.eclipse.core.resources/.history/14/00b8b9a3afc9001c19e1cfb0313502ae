@@ -1,0 +1,13 @@
+package com.example.demo.dao;
+
+import java.util.ArrayList;
+
+import com.example.demo.dto.accountVO;
+
+@Mapper
+public interface accountDao {
+
+	ArrayList<accountVO> getAccountList(String busi_num);
+	
+	
+}

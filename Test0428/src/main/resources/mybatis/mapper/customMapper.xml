@@ -6,7 +6,7 @@
     
 <mapper namespace="com.example.demo.dao.customDao">
 	<select id="getCustom" parameterType="String" resultType="com.example.demo.dto.customVO">
-		SELECT * FROM customTable WHERE busi_num = ${param1}
+		SELECT * FROM customTable WHERE TRIM(busi_num) = #{param1}
 	</select>
 	
 	<insert id="insertCustom" parameterType="com.example.demo.dto.customVO">
@@ -29,7 +29,7 @@
 	</update>
 	
 	<select id="getCustomSearchResult" resultType="com.example.demo.dto.customVO">
-		SELECT * FROM customTable 
+		SELECT busi_num, custom FROM customTable 
 			WHERE busi_num LIKE '%'||#{param1}||'%' AND custom LIKE '%'||#{param2}||'%' 
 				ORDER BY busi_num DESC
 	</select>
@@ -42,5 +42,10 @@
 		SELECT * FROM country 
 			WHERE UPPER(country_eng) LIKE UPPER('%'||#{param1}||'%') AND country_kor LIKE '%'||#{param2}||'%' 
 				ORDER BY country_num DESC
+	</select>
+	
+	<select id="getCustomInfo" parameterType="String" resultType="com.example.demo.dto.customVO">
+		SELECT c.*, a.factory, a.trade_bank, a.account_num FROM customTable c, account a 
+			WHERE c.busi_num = a.busi_num AND TRIM(c.busi_num)=#{param1}
 	</select>
 </mapper>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,13 +140,11 @@
 	                        <div class="customAccount_content_title" style="width:290px;">은행</div>
 	                        <div class="customAccount_content_title" style="width:290px;">계좌번호</div>
 	                    </div>
-	                    <c:forEach items="${accountList}" var="avo">
-		                    <div class="customAccount_content">
-		                        <div class="customAccount_content_title" style="width:170px;">${avo.factory }</div>
-		                        <div class="customAccount_content_title" style="width:290px;">${avo.trade_bank }</div>
-		                        <div class="customAccount_content_title" style="width:290px;">${avo.account_num }</div>
-		                    </div>
-	                    </c:forEach>
+	                    <div class="customAccount_content">
+	                        <input class="customAccount_content_title" style="width:166px;" type="text" name="factory" value="${dto.factory }">
+	                        <input class="customAccount_content_title" style="width:286px;" type="text" name="trade_bank" value="${dto.trade_bank }">
+	                        <input class="customAccount_content_title" style="width:286px;" type="text" name="account_num" value="${dto.account_num }">
+	                    </div>
 	                </div>
 	            </div>
 	        </div>

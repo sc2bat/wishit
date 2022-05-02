@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.accountDao">
+	<select id="getAccountList" parameterType="String" resultType="com.example.demo.dto.accountVO">
+		SELECT * FROM account WHERE busi_num = ${param1}
+	</select>
+	
+	<delete id="deleteAccount" parameterType="String">
+		DELETE FROM account WHERE TRIM(busi_num)=#{param1}
+	</delete>
+</mapper>

@@ -79,3 +79,20 @@ UPDATE customTable SET custom='emart', short_custom='test', ceo='test', charge_p
 
 DELETE FROM customTable WHERE TRIM(busi_num)= '211111';
 	(SELECT TRIM(busi_num) FROM customTable) = '211111';
+	
+UPDATE account SET factory='23', trade_bank='na_bank', account_num='12345'
+	WHERE busi_num= '4324';
+
+SELECT * FROM account;
+
+SELECT c.busi_num AS cbusi_num, c.custom, c.short_custom, c.ceo, c.charge_person, c.item, c.post_num, c.addr1, c.addr2, c.
+			tel, c.fax, c.homepage, c.co_yn, c.foreign_yn, c.tax_yn, c.country_eng, c.country_kor, c.special_relation, c.trade_stop, c.
+				contract_period_s, c.contract_period_e, c.regi_info_man, c.regi_info_date, a.busi_num AS tete
+					FROM customTable c, account a 
+						WHERE c.busi_num = a.busi_num AND TRIM(busi_num)='321';
+
+SELECT c.*, a.factory, a.trade_bank, a.account_num FROM customTable c, account a 
+	WHERE c.busi_num = a.busi_num AND TRIM(c.busi_num) = '0909';
+SELECT a.* FROM customTable c, account a WHERE c.busi_num = a.busi_num AND TRIM(c.busi_num) = '321';
+
+DELETE FROM customTable WHERE TRIM(busi_num) NOT LIKE '%38%';

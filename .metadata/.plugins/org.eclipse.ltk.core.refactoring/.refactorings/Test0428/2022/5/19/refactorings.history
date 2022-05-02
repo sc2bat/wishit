@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;customMapper.xml&apos; to &apos;Test0428/src/main/resources/mybatis.mapper&apos;&#x0D;&#x0A;- Original project: &apos;Test0428&apos;&#x0D;&#x0A;- Destination element: &apos;Test0428/src/main/resources/mybatis.mapper&apos;&#x0D;&#x0A;- Original element: &apos;customMapper.xml&apos;" description="Copy file" destination="/src\/main\/resources=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;mybatis.mapper" element1="src/main/resources/mybatis/mapper/customMapper.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1651451696384" units="0" version="1.0"/>
+</session>
