@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="relation"/>
+		<item key="selection" value=".customAccount_box"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value=".customAccount_box"/>
+			<item value="com.example"/>
+			<item value="getCustomInfo"/>
+			<item value=", "/>
+			<item value="Busi_num"/>
+			<item value="getcustom"/>
+			<item value="&lt;/div&gt;"/>
 			<item value="relation"/>
 			<item value="TO custom(busi_num, custom)"/>
 			<item value="custom_input"/>
-			<item value=", "/>
 		</list>
 		<list key="replacehistory">
+			<item value="com.second"/>
+			<item value=", c."/>
+			<item value=""/>
 			<item value="=#{}, "/>
 			<item value="=#{},"/>
 			<item value="}, #{"/>
